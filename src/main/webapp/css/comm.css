@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+div.searchBar {
+	margin-top:3px;
+	margin-left:3px;
+}
+
+input.button2 {
+	width: 40px;
+	height: 20px;
+	border:  1px solid #000000;
+	radius: 2px;
+}

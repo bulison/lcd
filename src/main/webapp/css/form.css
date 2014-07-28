@@ -1,0 +1,77 @@
+@CHARSET "UTF-8";
+
+body,html{font-family:"宋体"; font-size:12px; color:#000; margin:5px;line-height:150%;}
+div,form,input,select,td,table{ margin:0px; padding:0px;white-space:normal;list-style:none;}
+a{COLOR: #333; text-decoration:none;outline: 0px;}
+a:hover{COLOR: #CC0001; text-decoration:none;}
+img{border:0px; margin:0px; padding:0px; vertical-align:middle}
+p{ padding:0px; margin:0px;}
+
+
+/*maintop*/
+#maintop { height:67px; background:url(images/maintopbg.jpg) no-repeat #A1D1F5;}
+#maintop .oalogo { padding:0 10px;}
+#maintop .oatitle{FONT-FAMILY: 黑体; COLOR: #1a619c; FONT-SIZE: 25px; line-height:150%;}
+
+/*mainleft*/
+#mainleft .mainleft01{ background:url(images/mainleft01.jpg); height:10px;}
+#mainleft .cur{background:url(images/mainleft_cur.jpg); height:27px; text-align:center; font-weight:bold; color:#fff; line-height:150%;cursor:hand;}
+#mainleft .normal{ background:url(images/mainleft_normal.jpg); height:27px; text-align:center; font-weight: normal; color:#1968AA; line-height:150%;cursor:hand;}
+#mainleft .sub{ padding-left:15px;}
+
+/*卡片css*/
+.tab_first {height:30px; background:url(images/tab.jpg) #fff no-repeat 5px 3px; padding:0 20px 0 35px; font-weight:bold; color:#1C568A; width:100px; font-size:14px; border-bottom:1px solid #97C6E2;  border-right:1px solid #97C6E2; line-height:100%;}
+.tab_last {height:26px; background:url(images/tabbg.jpg) #C9ECFF repeat-x; border:1px solid #97C6E2; border-left:none;}
+.activepage { border:1px solid #97C6E2; border-left:none; border-bottom:none; background:#fff; width:100px; text-align:center; font-weight:bold; color:#196AAB;cursor:hand;}
+.normalpage { border:1px solid #97C6E2; border-left:none; background:url(../images/tabbg.jpg) #C9ECFF repeat-x; width:100px; text-align:center; color:#196AAB;cursor:hand;}
+.normalpageh{ border:1px solid #97C6E2; border-left:none; background: #5D99CE; width:100px; text-align:center; color:#fff;}
+
+/*工具栏css*/
+.toolbar { background: url(images/toolbarbg.jpg);border:1px solid #97C6E2; border-top: none;border-bottom: none; height:36px;}
+.button2 { cursor:pointer; background:url(images/button-2.jpg) no-repeat; width:45px; height:21px; margin:0; padding:0;border:0;margin-right:5px;}
+.button3 { cursor:pointer;background:url(images/button-3.jpg) no-repeat; width:55px; height:21px; margin:0; padding:0;border:0;margin-right:5px;}
+.button4 { cursor:pointer;background:url(images/button-4.jpg) no-repeat; width:70px; height:21px; margin:0; padding:0;border:0;margin-right:5px;}
+.button5 { cursor:pointer;background:url(images/button-5.jpg) no-repeat; width:85px; height:21px; margin:0; padding:0;border:0;margin-right:5px;}
+.button6 { cursor:pointer;background:url(images/button-6.jpg) no-repeat; width:100px; height:21px; margin:0; padding:0;border:0;margin-right:5px;}
+.button9 { cursor:pointer;background:url(images/button-9.jpg) no-repeat; width:145px; height:21px; margin:0; padding:0;border:0;margin-right:5px;}
+
+/*分页css*/
+.pagebar {border:1px solid #97C6E2; border-top: none; border-bottom:none; background:#F5FDFF; height:28px; color:#1C568A; height:30px;}
+.pagebarbottom {border:1px solid #97C6E2;border-top: none;}
+.pagebar td { padding:0 10px;}
+.pagebar span {height:20px;}
+.pagebar a{color:#1C568A;}
+.pagebar .SetBtnCSS { background:url(images/btn_set.gif) no-repeat; width:32px; height:20px;display:inline-block;}
+.pagebar .JumpBtnCSS { background:url(images/btn_go.gif) no-repeat; width:22px; height:20px;display:inline-block;}
+.pagebar .FirstBtnCSSDis { background:url(images/btn_sy.gif) no-repeat; width:55px; height:20px;display:inline-block;}
+.pagebar .BackBtnCSSDis { background:url(images/btn_syy.gif) no-repeat; width:55px; height:20px;display:inline-block;}
+.pagebar .NextBtnCSSDis { background:url(images/btn_xyy.gif) no-repeat; width:55px; height:20px;display:inline-block;}
+.pagebar .EndBtnCSSDis { background:url(images/btn_wy.gif) no-repeat; width:55px; height:20px;display:inline-block;}
+
+/*列表css*/
+.tablelist { border:1px solid #A8CFEB;}
+.tablelisttopic { background:#DFEAFB; color:#000080; text-align:center; height:25px;}
+.tablelistcontent td{border-bottom: 1px dotted #A8CFEB; height:22px; padding:3px;}
+.tablelistcontent0 td{ background:#fff;}
+.tablelistcontent1 td{ background:#F1F6FF;}
+.tablelistcontent0 td a,.tablelistcontent1 td a{ color:#00F ;}
+.tablelistcontenthover td{ background:#E7E7E7;}
+
+/*内容页css*/
+.contentbogy { background:#F2F6FF;}
+.titlebar { background: url(images/toolbarbg.jpg);border:none; height:36px; padding:0 10px; font-size:14px; color:#1C568A; font-weight:bold;}
+.titlebar img{ padding-right:10px;}
+.contenttable{ border-top:1px solid #C0C0C2;border-left:1px solid #C0C0C2;border-right:1px solid #C0C0C2; padding:0; margin:0; font-size:12px;}
+.contenttable td {border:1px solid #C0C0C2; border-top: 0; border-left:0; height:28px;}
+.contenttable .rowtitle { height:30px; border-left:none; border-right:none; font-weight:bold; padding-left:10px;}
+.contenttable .title{ width:80px; text-align:right; background:#F1F6FF; padding-right:5px;}
+.contenttable .content{ background:#fff; padding:2px 5px;}
+.contenttable .last{ border-right:none;}
+.contenttable .bottom { height:40px; text-align:center;background:#F1F6FF;}
+
+/*表单控件css*/
+.input_txt { border:1px solid #ccc;  padding:2px;} 
+.input_txt_hover{ border:1px solid #999; background:#FFFFCC;} 
+
+.input_textarea { border:1px solid #ccc; padding:2px;} 
+.input_textarea_hover{ border:1px solid #999; background:#FFFFCC;} 

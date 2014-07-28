@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.user.IUserDao">
+<cache/>
+	<!-- column属性是数据库中表对应的字段
+		property属性是java实体中对应的属性名
+	 -->
+    <resultMap type="com.domain.user.User" id="userMap">
+        <id column="uid" property="uid"/>
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+    </resultMap>
+<!--  	一定要和mybatis-config.xml中的typeAlias 对应 -->
+<!--     <select id="selectByID" parameterType="string" resultType="UserType"> -->
+<!--         select * from `t_user` where uid = #{id} -->
+<!--     </select> -->
+<!--     <select id="selectAll"  resultMap="userMap"> -->
+<!--         select * from `t_user` -->
+<!--     </select> -->
+    
+     <select id="checkUser"  resultMap="userMap">
+        select * from `t_user` where username=#{username} and password=#{password}
+    </select>
+    <!--执行增加操作的SQL语句。id和parameterType 
+       分别与IUserOperation接口中的addUser方法的名字和 
+       参数类型一致。以#{name}的形式引用Student参数 
+       的name属性，MyBatis将使用反射读取Student参数 
+       的此属性。#{name}中name大小写敏感。引用其他 
+       的gender等属性与此一致。seGeneratedKeys设置 
+       为"true"表明要MyBatis获取由数据库自动生成的主 
+       键；keyProperty="id"指定把获取到的主键值注入 
+       到Student的id属性-->
+<!--     <insert id="add" parameterType="UserType" > -->
+<!--         insert into t_user(id,username,password) values(#{id},#{username},#{password})  -->
+<!--     </insert> -->
+<!--     <update id="update" parameterType="UserType" > -->
+<!--         update  t_user set username=#{username},password=#{password} where uid=#{id} -->
+<!--     </update> -->
+<!--     <delete id="delete" parameterType="string"> -->
+<!--         delete from t_user where uid=#{id} -->
+<!--     </delete> -->
+    <!-- 为了返回list 类型而定义的returnMap -->
+</mapper>

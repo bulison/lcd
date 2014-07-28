@@ -1,0 +1,15 @@
+@charset "utf-8";
+body {padding:0px;margin:0px;overflow:hidden;background-color:#c1dbfa;}
+#toolBar {height: 40px;background-color: #036;}
+#toolBar #titleBar {color: #FFF;font-size: 14px;font-weight: bold;position: absolute;width: 180px;line-height: 25px;top: 8px;left: 41px;}
+#toolBar #info { width: 300px;line-height: 25px;text-align: right;position: absolute;top: 8px;right: 10px;color: #FFF;}
+#toolBar #info a { text-decoration: none; color: #FFC; }
+#toolBar #info a:hover { text-decoration: underline; }
+#mainLogo { width: 25px; height: 25px; margin-left: 10px; margin-top: 7.5px; float: left; }
+#stutsBar { background-color:#036; line-height:20px; heights20px; font-size:12px; color:#CCC; text-align:center; }
+#stutsBar a { text-decoration:none; color:#FFF; }
+#stutsBar #copyright { position:absolute; width:80px; text-indent:0px; text-align:center; background-color:#F24F00; right:0px; }
+#stutsBar #copyCon{display:none;}
+#stutsBar #copyright a { color: #FFF; text-decoration: none; }
+.l-link { display:block; line-height:22px; height:22px; padding-left:16px; border:1px solid white; margin:4px; text-decoration:none }
+.l-link-over { background:#FFEEAC; border:1px solid #DB9F00; }

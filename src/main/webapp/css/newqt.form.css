@@ -1,0 +1,35 @@
+@charset "utf-8";
+body {margin:0px; font-size: 12px; padding:0px}
+form {margin:0px; padding:0px;}
+table.group {margin: 10px 10px 0px 10px;}
+table.group caption {text-align:left; font-size:12px; color:#069; padding-bottom:10px; background: url(../js/ligerUI/skins/icons/communication.gif) no-repeat left top; line-height:18px; text-indent:20px}
+table.group caption div {border-bottom:1px #CCC solid;}
+table.group th {font-size:12px; font-weight:normal; width:70px; text-align:right; margin:0px; padding:3px 2px;}
+table.group td {font-size:12px; margin:0px; padding:3px 2px;}
+
+table.n_group {margin: 10px 10px 0px 10px;}
+table.n_group caption {text-align:left; font-size:12px; color:#069; padding-bottom:10px; background: url(../js/ligerUI/skins/icons/communication.gif) no-repeat left top; line-height:18px; text-indent:20px}
+table.n_group caption div {border-bottom:1px #CCC solid;}
+table.n_group th {font-size:12px; font-weight:normal; width:70px; text-align:right; margin:0px; padding:3px 2px;}
+table.n_group td {font-size:12px; margin:0px; padding:3px 2px;}
+
+input, select, textarea, label { font-size:12px; margin:0px;}
+select {width:116px;}
+textarea {width:304px; width:307px\9;*width:307px; _width:307px; border:1px #7f9db9 solid; background:url(images/input-bg.gif) repeat-x left top}
+td.btnBar {text-align:right;}
+td.ptop {padding-top:5px !important}
+.inputerror {border: 1px #F77 solid !important;	background: #FEE url(images/input-error-bg.gif) left bottom repeat-x !important;}
+.red {color:red}
+.text {width: 110px; border:1px #7f9db9 solid; background:#fff url(images/input-bg.gif) repeat-x left top; padding:2px;}
+.num {text-align: right !important}
+.colspan2 {width:304px !important}
+.readonly {background:#F9F9F9; !important; background-image:none!important;}
+.disabled { border:1px #CCC solid !important; background:#F3F3F3 !important; background-image:none!important; cursor:default; color:#CCC; filter:progid:dximagetransform.microsoft.basicimage(grayscale=1);}
+.combox {background: url(images/combox-bg.gif) #FAFAFA right center no-repeat !important; cursor:default; overflow:hidden}
+.comboxCon {background: #FFF; border:1px #7f9db9 solid; position:absolute; display:none; margin:0px}
+.smchoser {border:1px #7f9db9 solid; padding:2px; background:#FCFCFC url(../js/ligerUI/skins/icons/search.gif) no-repeat right center !important; cursor:pointer}
+.date {background:#FCFCFC url(../js/ligerUI/skins/icons/date.gif) no-repeat right center !important; cursor:default;}
+
+/*重构*/
+div.captionContainer {text-align:left; font-size:12px; color:#069; padding-bottom:10px; background: url(../js/ligerUI/skins/icons/communication.gif) no-repeat left top; line-height:18px; text-indent:20px}
+div.caption {border-bottom:1px #CCC solid;}

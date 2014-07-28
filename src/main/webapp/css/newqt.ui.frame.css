@@ -1,0 +1,213 @@
+html {
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	height: 100%;
+	cursor: default;
+}
+#toolBar {
+	height: 60px;
+	border-bottom: 3px solid #1d3c96;
+}
+#mainLogo {
+	width: 160px;
+	height: 45px;
+	margin: 8px 10px;
+	float: left;
+}
+#toolBar #info {
+	margin: 0px; padding:0px;
+	position: relative;
+	line-height: 25px;
+}
+#toolBar #info a {
+	text-decoration: none;
+}
+#mainTabed {
+	margin:0; padding:0;
+	list-style: none;
+	position: relative;
+	top: 10px;
+	_top: 0px;
+	overflow: hidden;
+	height: 25px;
+	white-space:nowrap;
+}
+#tabedSelect {
+	position: relative;
+	top: 10px;
+	height: 18px;
+	width: 18px;
+	margin: 3px;
+	background: url(images/ui-icons_888888_256x240.png) no-repeat -62px -190px;
+	float: right;
+}
+#mainTabed li {
+	width: 120px;
+	float: left;
+	text-align: center;
+	line-height: 25px;
+	margin-right: 3px;
+	cursor: default;
+	overflow: hidden;
+	background: url(images/tabbed.png) no-repeat right -31px;
+}
+#mainTabed li:hover {
+	background: url(images/tabbed.png) no-repeat right -60px;
+}
+#mainTabed li.cur {
+	color: #fff;
+	font-weight:bold;
+	font-size: 14px;
+	background: url(images/tabbed.png) no-repeat right top;
+}
+#mainTabed li span#tit {
+	width: 100px;
+	_width: 90px;
+	display: block;
+	margin: auto 0px;
+	padding-left: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: default;
+	float: left;
+	background: url(images/tabbed.png) no-repeat left -31px;
+}
+#mainTabed li:hover span#tit {
+	background: url(images/tabbed.png) no-repeat left -60px;
+}
+#mainTabed li.cur span#tit {
+	width: 100px;
+	display: block;
+	float: left;
+	margin: auto 0px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: default;
+	padding-left: 5px;
+	background: url(images/tabbed.png) no-repeat left top;
+}
+#mainTabed li span#cls {
+	width: 9px;
+	height: 15px;
+	display: block;
+	float: right;
+	margin: 7px 5px 7px 0px;
+	background: url(images/ui-icons_888888_256x240.png) -85px -131px;
+	cursor: default;
+}
+#mainTabed li span#cls:hover {
+	background: url(images/ui-icons_cd0a0a_256x240.png) -100px -131px;
+}
+
+/* Menu Bar Style Start*/
+#menuBar {
+	float: left;
+	width: 179px;
+	background: #F3F7FA;
+	border-right:1px #1d3c96 solid;
+	height: 100%;
+	overflow: hidden;
+}
+#menuBar #commBtn {
+	background: #1d3c96 url(images/commBarBg.png) repeat-x top;
+	padding: 5px 3px;
+	height: 34px;
+	border-bottom: 1px #1d3c96 solid;
+}
+#menuBar #commBtn a {
+	display: block;
+	width: 81px;
+	background: #FFFFFF url(images/commBtnBg.png) no-repeat;
+	line-height: 32px;
+	float: left;
+	margin: 0px 2px 0px 3px;
+	text-align: center;
+	text-decoration: none;
+	color: #000033;
+	font-size: 14px;
+	font-weight: bold;
+}
+#menuBar ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+#menuBar li {
+	cursor: pointer;
+	line-height: 24px;
+}
+#menuBar li a.closed {
+	background: url(images/ha-down.gif) no-repeat 98% center;
+}
+#menuBar li a.header {
+	display: block;
+	width: 169px;
+	background:url(images/AccordionTab0.gif) repeat-x left center;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #999999;
+	padding: 1px 5px 0px 5px;
+	text-decoration: none;
+	color:#333333;
+}
+#menuBar li li a {
+	padding: 0px 10px;
+	display: block;
+	text-decoration: none;
+	width: 159px;
+	color: #003399;
+}
+#menuBar li li a:hover {
+	background: #DDF4FF;
+}
+#mainCon {
+	height: 100%;
+	float: left;
+}
+#mainCon iframe.tabCon {
+	width: 100%;
+	height: 100%;
+	border: 0px;
+}
+	
+div.promptBar {
+	width: 200px;
+	border:1px solid #003333;
+	background: #0066CC;
+	font-size: 12px;
+	position: absolute;
+	display: none;
+	z-index: 2000;
+	right: 3px;
+	bottom: 3px;
+}
+div.promptBar .tit {
+	line-height: 15px;
+	text-indent: 5px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+div.promptBar .cls {
+	width: 13px;
+	height: 13px;
+	background:url(images/ui-icons_888888_256x240.png) no-repeat -34px -194px;
+	float: right;
+	display: block;
+	margin: 1px;
+}
+div.promptBar .cls:hover {
+	background:url(images/ui-icons_cd0a0a_256x240.png) no-repeat -34px -194px;
+}
+div.promptBar .con {
+	background: #FFFFFF;
+	border:1px solid #003333;
+	margin: 0px 2px 2px 2px;
+	height: 50px;
+	clear: both;
+	padding: 5px;
+}

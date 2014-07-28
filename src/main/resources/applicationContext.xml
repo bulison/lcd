@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 使用annotation 自动注册bean -->
+	<context:component-scan base-package="com" />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!--防止@ResponseBody返回中文乱码 -->
+			<ref bean="mappingJacksonHttpMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射,解决@ResponseBody乱码问题, 需要在annotation-driven和component-scan之前,否则乱码问题同样无法解决 -->  
+	<!--Spring3.1推荐使用RequestMappingHandlerAdapter -->  
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<bean class="org.springframework.http.MediaType">
+								<constructor-arg index="0" value="text" />
+								<constructor-arg index="1" value="plain" />
+								<constructor-arg index="2" value="UTF-8" />
+							</bean>
+						</list>
+					</property>
+				</bean>
+				<ref bean="mappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	<!-- 需要加这个，否则报The resource identified by this request is only capable of generating responses -->
+	<bean id="jsonHttpMessageConverter" 
+       class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+	<!-- mappingJacksonHttpMessageConverter ： 用来处理json格式转换 -->
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>application/json;charset=UTF-8</value>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+		<property name="objectMapper">
+			<bean class="org.codehaus.jackson.map.ObjectMapper">
+				<property name="dateFormat">
+					<bean class="java.text.SimpleDateFormat">
+						<!-- 如果用yyyy-MM-dd hh:mm:ss会打乱json格式 -->
+						<constructor-arg type="java.lang.String" value="yyyy-MM-dd hh:mm:ss"></constructor-arg>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 定义数据源Bean，使用C3P0数据源实现 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- 指定连接数据库的驱动 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />         <!-- 指定连接数据库的URL -->
+		<property name="jdbcUrl"
+			value="jdbc:mysql://localhost:3306/lcd?characterEncoding=utf8" />
+		<!-- 指定连接数据库的用户名 -->
+		<property name="user" value="root" />         <!-- 指定连接数据库的密码 -->
+		<property name="password" value="12345678" />
+		<!-- 指定连接数据库连接池的最大连接数 -->
+		<property name="maxPoolSize" value="40" />
+		<!-- 指定连接数据库连接池的最小连接数 -->
+		<property name="minPoolSize" value="1" />
+		<!-- 指定连接数据库连接池的初始化连接数 -->
+		<property name="initialPoolSize" value="1" />
+		<!-- 指定连接数据库连接池的连接最大空闲时间 -->
+		<property name="maxIdleTime" value="20" />
+	</bean>
+	<!-- myibatis会话工厂 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+		<constructor-arg index="1" value="BATCH" /><!--- 如果想要进行批量操作可加入这个属性 -->
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.dao" />
+	</bean>
+	<!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- <property name="prefix" value="/WEB-INF/views/" /> -->
+		<property name="prefix" value="/views/" />
+		<property name="suffix" value=".jsp" />
+
+
+
+		<!-- ================================事务相关控制================================================= -->
+		<!-- 配置声明式的事务管理（采用基于aop的方式） -->
+		<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
+			<property name="dataSource" ref="dataSource"></property> </bean> <tx:advice 
+			id="txAdvice" transaction-manager="transactionManager"> <tx:attributes> <tx:method 
+			name="*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception" 
+			/> </tx:attributes> </tx:advice> <aop:config> <aop:pointcut id="pCut" expression="execution(* 
+			*com.mybatis.service.*.*(..))" /> 把事务控制在Service层 <aop:advisor pointcut-ref="pCut" 
+			advice-ref="txAdvice" /> </aop:config> -->
+		<!-- 以下为自定义bean -->
+		<!-- <bean id="appMybatisDao" class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
+		<!-- <property name="mapperInterface" value="com.dao.AppMybatisDao"></property> -->
+		<!-- <property name="sqlSessionFactory" ref="sqlSessionFactory"></property> -->
+	</bean>
+</beans>

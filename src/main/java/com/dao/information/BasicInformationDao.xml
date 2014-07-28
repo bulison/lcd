@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.information.IBasicInformation">
+<cache/>
+	<!-- column属性是数据库中表对应的字段
+		property属性是java实体中对应的属性名
+	 -->
+    <resultMap type="com.domain.information.BasicInformation" id="informationMap">
+		<id column="bid" property="bid" />
+		<result column="installAddress" property="installAddress" />
+		<result column="installTime" property="installTime" />
+		<result column="contact" property="contact" />
+		<result column="contactTel" property="contactTel" />
+		<result column="picture" property="picture" />
+		<result column="installModel" property="installModel" />
+		<result column="screen" property="screen" />
+		<result column="facilityName" property="facilityName" />
+		<result column="deviceNumber" property="deviceNumber" />
+		<result column="state" property="state" />
+		<result column="point" property="point" />
+		
+    </resultMap>
+<!--  	一定要和mybatis-config.xml中的typeAlias 对应 -->
+    <select id="selectByID" parameterType="string" resultType="InformationType">
+        select * from `t_basicInformation` where bid = #{id}
+    </select>
+    
+    <select id="totalCount" resultType="int">
+        select count(bid) from `t_basicInformation` where 1=1
+        <if test="param.keyword !=null and param.keyword !=''"> and facilityName like '%${param.keyword}%'</if>
+    </select>
+    <select id="selectByName" resultMap="informationMap">
+        select bid,facilityName from `t_basicInformation`
+    </select>
+    
+    <select id="selectAll"  resultMap="informationMap">
+        select * from `t_basicInformation` where 1=1
+        
+        <if test="param.keyword !=null and param.keyword !=''"> and facilityName like '%${param.keyword}%'</if>
+        <if test="param.sortName !=null and param.sortName !=''"> order by #{param.sortName} </if>
+       
+ 		<if test="param.sortOrder !=null and param.sortOrder !=''"> ${param.sortOrder}</if>
+ 		
+ 		<if test="param.startCount !=null and param.startCount !='' and param.pageSize !=null and param.pageSize !=''"> 
+ 		 limit #{param.startCount},#{param.pageSize}
+ 		</if>
+    </select>
+  
+    <insert id="add">
+        insert into t_basicInformation(
+        bid,installAddress,installTime,contact,contactTel,picture,installModel,screen,deviceNumber,state,point,facilityName)
+         values
+         (#{bid},#{installAddress},#{installTime},#{contact},
+         #{contactTel},#{picture},#{installModel},#{screen},
+         #{deviceNumber},#{state},#{point},#{facilityName}
+         ) 
+    </insert>
+	<update id="update">
+		update t_basicInformation set
+		 installAddress=#{installAddress},
+		installTime=#{installTime},
+		contact=#{contact},
+		contactTel=#{contactTel},
+		picture=#{picture},
+		installModel=#{installModel},
+		screen=#{screen},
+		deviceNumber=#{deviceNumber},
+		state=#{state},
+		facilityName=#{facilityName},
+		point=#{point}
+		 where bid=#{bid}
+	</update>
+    <delete id="delete">
+        delete from t_basicInformation where bid=#{id}
+    </delete>
+    <!-- 为了返回list 类型而定义的returnMap -->
+</mapper>

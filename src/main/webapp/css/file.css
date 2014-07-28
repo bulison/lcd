@@ -1,0 +1,8 @@
+div.fileItem {
+	margin-left: 5px;
+	line-height: 20px;
+	height:20px;
+	border: 1px solid #E0E0E0; 
+	background-color: #FFF0AC; 
+	float: left;
+}

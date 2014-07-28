@@ -1,0 +1,38 @@
+@charset "utf-8";
+html { height: 100%; overflow: hidden; }
+body { height: 100%; margin: 0px; padding: 0px; text-align: center; font-family: "微软雅黑", Arial, sans-serif; font-size: 12px; }
+a { text-decoration: none }
+
+#mainCon { width: 800px; height: 500px; margin: auto; text-align: left; display: none; }
+
+#logoBar { float:left; position:relative; width:40px;	height:40px; }
+#titleBar { font-size:14px; font-weight:bold; position:relative; width:180px; line-height:40px; top:0px; left:10px; float:left; }
+#nav { float: right; position:relative; width: 450px; height:40px; line-height:40px; text-align:right; color:#CCC; }
+#nav a {color:#666; }
+#nav a:hover {color:#F60; }
+
+#banner {position:relative; top:15px; clear:both}
+#loginFormBg { background-color: #000; filter:alpha(opacity=70); -moz-opacity:0.7; -khtml-opacity: 0.7; opacity: 0.7; width: 250px; height: 290px; position: absolute; z-index: 2; display: none; }
+#loginForm { width: 250px; height: 290px; margin: 0px; padding: 0px; position: absolute; z-index: 3; display: none; }
+#loginForm #tit { color: #FFF; font-size: 14px; font-weight: bold; line-height:20px; margin:15px 20px 35px 20px; }
+#loginForm label { color: #FFF; font-size: 12px; font-weight: normal;}
+/* 无需验证码模式 */
+#vUserId, #vPw, #vCode {background:url(../img/input-bg.gif) #FFF repeat-x left top; border:1px solid #CCC; width:198px; height:24px; line-height:24px; font-size:14px; font-weight:bold; font-family:Verdana, Arial, Helvetica, sans-serif; padding:2px 5px;}
+#barUserId, #barPw, #barSave, #barCode {width:210px; height:44px; margin:20px 20px 0px 20px;}
+#barSave {height:24px; top:60px; margin-top:5px;}
+#lbSaveId, #lbSavePw {width: 100px; height:14px; float:left;}
+#barCode{margin:0px 20px 5px 20px;}
+#vCode{width:80px;}
+#imgCode{width:100px; height:30px; margin-bottom:-9px; border:0px;}
+/* 显示验证码模式 */
+.showCode {margin:10px 20px 0px 20px !important}
+.showCodeTit {margin-bottom:15px !important}
+
+#btnSubmit { background: url(../img/login-btn.gif) no-repeat center top; width: 210px; height: 35px; border: 0px; margin:20px 20px 0px 0px;}
+#btnSubmit:hover { background-position: center -35px; }
+#errInfo {width: 210px; height:20px; line-height:20px; color:#FFF; margin:0px 20px;}
+
+#copyCon { position: relative; width: 800px; height: 25px; line-height: 25px; top:20px; clear: both; display:none}
+
+.inputerror { border: 1px #F77 solid !important; background: #FEE url(img/input-error-bg.gif) left bottom repeat-x !important; }
+.red { color:red}

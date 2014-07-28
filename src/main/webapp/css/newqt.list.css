@@ -1,0 +1,21 @@
+@charset "utf-8";
+div.searchBar {
+	background: #cedfef;
+	padding: 3px 0px;
+}
+div.searchBar form {
+	margin: 0px;
+	padding: 0px;
+}
+div.searchBar input, div.searchBar select {
+	font-size: 12px;
+}
+div.searchBar span {
+	white-space:nowrap;
+	margin-left: 5px;
+}
+div.searchBar span .button {
+	width: 50px;
+}
+a {text-decoration:none;}
+a:hover {text-decoration:underline;}

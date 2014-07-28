@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.record.IMaintainRecordDao">
+<cache/>
+	<!-- column属性是数据库中表对应的字段
+		property属性是java实体中对应的属性名
+	 -->
+    <resultMap type="com.domain.information.BasicInformation" id="informationMap">
+        <id column="bid" property="bid"/>
+        <result column="installAddress" property="installAddress" />
+        <result column="installTime" property="installTime" />
+        <result column="contact" property="contact" />
+        <result column="contactTel" property="contactTel" />
+        <result column="picture" property="picture" />
+        <result column="installModel" property="installModel" />
+        <result column="screen" property="screen" />
+        <result column="facilityName" property="facilityName" />
+   		<result column="deviceNumber" property="deviceNumber" />
+		<result column="state" property="state" />
+		<result column="point" property="point" />
+    </resultMap>
+    <resultMap type="com.domain.record.MaintainRecord" id="maintainRecordMap">
+        <id column="mid" property="mid"/>
+        <result column="faultSource" property="faultSource" />
+        <result column="faultScene" property="faultScene" />
+        <result column="result" property="result" />
+        <result column="clientFeedback" property="clientFeedback" />
+        <result column="maintenanceTime" property="maintenanceTime" />
+        <association property="bid" resultMap="informationMap" />
+    </resultMap>
+    
+    
+<!--  	一定要和mybatis-config.xml中的typeAlias 对应 -->
+    <select id="selectByID" parameterType="string" resultMap="maintainRecordMap">
+        select * from `t_maintainrecord` where mid = #{id}
+    </select>
+    
+    <select id="totalCount" resultType="int">
+        select count(mid) from `t_maintainrecord` m
+        INNER JOIN t_basicinformation b ON m.bid=b.bid where 1=1
+         <if test="param.keyword !=null and param.keyword !=''"> and b.facilityName like '%${param.keyword}%'</if>
+    </select>
+    
+    <select id="selectAll"  resultMap="maintainRecordMap">
+          SELECT m.*,b.facilityName facilityName FROM t_maintainrecord m 
+          INNER JOIN t_basicinformation b ON m.bid=b.bid where 1=1
+          <if test="param.keyword !=null and param.keyword !=''"> and b.facilityName like '%${param.keyword}%'</if>
+          <if test="param.sortName !=null and param.sortName !=''"> order by #{param.sortName} </if>
+		 <if test="param.sortOrder !=null and param.sortOrder !=''"> ${param.sortOrder}</if>
+          limit #{param.startCount},#{param.pageSize}
+    </select>
+  
+    <insert id="add">
+    insert into t_maintainrecord(
+        bid,faultSource,faultScene,result,clientFeedback,maintenanceTime)
+         VALUES
+         (#{bid.bid},#{faultSource},#{faultScene},
+         #{result},#{clientFeedback},#{maintenanceTime}) 
+    </insert>
+	<update id="update">
+		update t_maintainrecord set
+		 bid=#{bid.bid},
+		faultSource=#{faultSource},
+		faultScene=#{faultScene},
+		result=#{result},
+		clientFeedback=#{clientFeedback},
+		maintenanceTime=#{maintenanceTime}
+		 where mid=#{mid}
+	</update>
+    <delete id="delete">
+        delete from t_maintainrecord where mid=#{id}
+    </delete>
+    <!-- 为了返回list 类型而定义的returnMap -->
+</mapper>

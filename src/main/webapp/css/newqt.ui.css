@@ -1,0 +1,100 @@
+div.nqtDialog {
+	width: 500px;
+	border:1px solid #003333;
+	background: #0066CC;
+	font-size: 12px;
+	position: absolute;
+	display: none;
+	z-index: 1000;
+}
+div.nqtDialog .tit {
+	line-height: 22px;
+	text-indent: 5px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+div.nqtDialog .cls {
+	width: 16px;
+	height: 16px;
+	background:url(images/ui-icons_888888_256x240.png) no-repeat -32px -192px;
+	float: right;
+	display: block;
+	margin: 3px;
+}
+div.nqtDialog .cls:hover {
+	background:url(images/ui-icons_cd0a0a_256x240.png) no-repeat -32px -192px;
+}
+div.nqtDialog .con {
+	background: #FFFFFF;
+	border:1px solid #003333;
+	margin: 0px 2px 2px 2px;
+	height: 275px;
+	clear: both;
+}
+div.modelBackground {
+	background: #333333;
+	filter: alpha(opacity=20);
+	-moz-opacity: 0.2;
+	-khtml-opacity: 0.2;
+	opacity: 0.2;
+	position: absolute;
+	z-index: 99;
+	top: 0px;
+	left: 0px;
+	display: none;
+	width: 100%;
+}
+div.logingTipsCon {
+	background: #fafcff url(images/loading.gif) no-repeat 10px 10px;
+	height: 44px;
+	line-height: 44px;
+	padding: 0px 10px 0px 44px;
+	color: #333;
+	border: 1px #9BDEFF solid;
+	position: absolute;
+	z-index: 1000;
+	font-size: 12px;
+	display: none;
+}
+
+.tab_menu{ 
+	list-style:none; 
+	width:100%; 
+	overflow:hidden;
+	margin: 0px;
+	padding: 0px;
+} 
+.tab_menu li{ 
+	width:100px;
+	line-height:22px; 
+	float:left; 
+	color: #666666; 
+	background: #FFF;
+	border: 1px solid #999999; 
+	text-align:center; 
+	cursor:pointer;
+	margin-right: 2px;
+} 
+
+.tab_menu li.current{ 
+	color:#333; 
+	line-height: 24px;
+	background: #0080C0;
+	border: 1px #0080C0 solid;
+	margin-bottom: -1px;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 14px;
+} /*TAB菜单高亮样式*/ 
+
+.tab_box{ 
+	padding:10px;
+	border: 1px #0080C0 solid;
+	border-top: 2px #0080C0 solid;
+	background: #DDEEFF;
+} 
+
+.tab_box .hide{ 
+	display:none; 
+} /*隐藏TAB内容部分*/ 
+
